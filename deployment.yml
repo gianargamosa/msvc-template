@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stellar-dock
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name: stellar-dock
+  template:
+    metadata:
+      labels:
+        name: stellar-dock
+    spec:
+      containers:
+      - name: application
+        image: gianargamosa/stellar-dock
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8080
