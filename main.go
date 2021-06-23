@@ -11,7 +11,10 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "stellar microservice is up and running!\n")
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "application/json")
+
+	io.WriteString(w, `{"alive": true}`)
 }
 
 func router() *mux.Router {
@@ -28,7 +31,6 @@ func main() {
 	}
 
 	router := router()
-	// port := os.Getenv("PORT")
 
 	fmt.Println("server started and listening")
 

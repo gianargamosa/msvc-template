@@ -16,6 +16,6 @@ spec:
       containers:
       - name: application
         image: gianargamosa/stellar-dock
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
           - containerPort: 8080
